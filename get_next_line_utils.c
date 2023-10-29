@@ -6,7 +6,7 @@
 /*   By: dmeirele <dmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:37:43 by dmeirele          #+#    #+#             */
-/*   Updated: 2023/10/27 20:29:01 by dmeirele         ###   ########.fr       */
+/*   Updated: 2023/10/29 19:03:43 by dmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,25 @@ int	ft_check_character(char *str, char c)
 	return (0);
 }
 
+char *ft_parse_line(char *src, char *dest, int nl)
+{
+	int	i;
+
+	i = 0;
+	while(src[i])
+	{
+		dest[i] = src[i];
+		if(nl || src[i] == '\n')
+		{
+			i++;
+			break;
+		}
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
 char *ft_strjoin(char *buffer_read, char *buf)
 {
 	int	len;
@@ -58,7 +77,7 @@ char *ft_strjoin(char *buffer_read, char *buf)
 		i++;
 	}
 	j = 0;
-	while (buf[j])
+	while (buf[j] != '\0')
 		joined[i++] = buf[j++];
 	joined[i] = '\0';
 	if (buffer_read != NULL)
