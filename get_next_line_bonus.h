@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmeirele <dmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 19:19:16 by dmeirele          #+#    #+#             */
-/*   Updated: 2023/10/30 19:12:47 by dmeirele         ###   ########.fr       */
+/*   Created: 2023/10/30 18:55:48 by dmeirele          #+#    #+#             */
+/*   Updated: 2023/10/30 19:13:14 by dmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
+# endif
+# ifndef FD_MAX_FILES
+#  define FD_MAX_FILES 1000
 # endif
 
 char	*get_next_line(int fd);

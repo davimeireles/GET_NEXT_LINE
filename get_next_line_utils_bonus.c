@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmeirele <dmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:37:43 by dmeirele          #+#    #+#             */
-/*   Updated: 2023/10/30 19:07:33 by dmeirele         ###   ########.fr       */
+/*   Updated: 2023/10/30 19:07:01 by dmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
@@ -20,7 +20,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 
 	total_size = nmemb * size;
 	ptr = malloc(total_size);
-	if (!ptr)
+	if (!(ptr))
 		return (NULL);
 	i = 0;
 	while (i < total_size)

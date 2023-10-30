@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmeirele <dmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:37:25 by dmeirele          #+#    #+#             */
-/*   Updated: 2023/10/30 19:12:09 by dmeirele         ###   ########.fr       */
+/*   Updated: 2023/10/30 19:10:10 by dmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_read_from_file(char *s_buffer, int fd)
 {
@@ -84,17 +84,17 @@ char	*ft_update_data(char *s_buffer)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*s_buffer;
+	static char	*s_buffer[FD_MAX_FILES];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	s_buffer = ft_read_from_file(s_buffer, fd);
-	if (!s_buffer)
+	s_buffer[fd] = ft_read_from_file(s_buffer[fd], fd);
+	if (!s_buffer[fd])
 	{
-		free(s_buffer);
+		free(s_buffer[fd]);
 		return (NULL);
 	}
-	line = ft_extract_line(s_buffer);
-	s_buffer = ft_update_data(s_buffer);
+	line = ft_extract_line(s_buffer[fd]);
+	s_buffer[fd] = ft_update_data(s_buffer[fd]);
 	return (line);
 }
